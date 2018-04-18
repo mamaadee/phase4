@@ -23,10 +23,27 @@ class UserTest < ActiveSupport::TestCase
       delete_users
     end
     
+    should "allow user to authenticate with password" do
+      assert @maryam_u.authenticate("secret")
+      deny @maryam_u.authenticate("notsecret")
+    end
+    
     should "users should have unique, case-insensitive usernames" do
       assert_equal "mamaadee", @maryam_u.username
       @maryam_u.username = "AMNAAZZ"
       deny @maryam_u.valid?, "#{@maryam_u.username}"
+    end
+    
+    should "require a password for new users" do
+      bad_user = FactoryBot.build(:user, username: "tank", password: nil)
+      deny bad_user.valid?
+    end
+    
+    should "require passwords to be confirmed and matching" do
+      bad_user_1 = FactoryBot.build(:user, username: "tank", password: "secret", password_confirmation: nil)
+      deny bad_user_1.valid?
+      bad_user_2 = FactoryBot.build(:user, username: "tank", password: "secret", password_confirmation: "sauce")
+      deny bad_user_2.valid?
     end
     
   end

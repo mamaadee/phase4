@@ -43,5 +43,37 @@ FactoryBot.define do
     max_capacity 16
     active true
   end
+  
+  factory :student do
+    first_name "Maryam"
+    last_name "Al-Maadeed"
+    association :family
+    rating nil
+    date_of_birth 12.years.ago.to_date
+    active true
+  end
+
+  factory :family do
+    family_name "AlMaadeed"
+    parent_first_name "Abdulla"
+    association :user
+    active true
+  end
+
+  factory :registration do
+    association :camp
+    association :student
+    #payment "YmVjY2E6c2VjcmV0"
+  end
+
+  factory :user do
+    username "mamaadee"
+    password "secret"
+    password_confirmation "secret"
+    role "admin"
+    email { |a| "#{a.username}@example.com".downcase }
+    phone { rand(10 ** 10).to_s.rjust(10,'0') }
+    active true
+  end
 
 end

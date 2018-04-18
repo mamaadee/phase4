@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127015703) do
+ActiveRecord::Schema.define(version: 20180414181351) do
 
   create_table "camp_instructors", force: :cascade do |t|
     t.integer "camp_id"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 20171127015703) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "families", force: :cascade do |t|
+    t.string "family_name"
+    t.string "parent_first_name"
+    t.integer "user_id"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_families_on_user_id"
+  end
+
   create_table "instructors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -66,6 +76,39 @@ ActiveRecord::Schema.define(version: 20171127015703) do
     t.string "zip"
     t.integer "max_capacity"
     t.boolean "active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "registrations", force: :cascade do |t|
+    t.integer "camp_id"
+    t.integer "student_id"
+    t.string "payment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["camp_id"], name: "index_registrations_on_camp_id"
+    t.index ["student_id"], name: "index_registrations_on_student_id"
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "family_id"
+    t.date "date_of_birth"
+    t.integer "rating"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_students_on_family_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.string "role"
+    t.string "email"
+    t.string "phone"
+    t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

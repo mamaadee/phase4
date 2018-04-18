@@ -4,6 +4,10 @@ require './test/sets/instructor_contexts'
 require './test/sets/camp_contexts'
 require './test/sets/camp_instructor_contexts'
 require './test/sets/location_contexts'
+require './test/sets/family_contexts'
+require './test/sets/student_contexts'
+require './test/sets/registration_contexts'
+require './test/sets/user_contexts'
 
 
 module Contexts
@@ -13,6 +17,10 @@ module Contexts
   include Contexts::CampContexts
   include Contexts::CampInstructorContexts
   include Contexts::LocationContexts
+  include Contexts::FamilyContexts
+  include Contexts::RegistrationContexts
+  include Contexts::UserContexts
+  include Contexts::StudentContexts
 
   def create_cuke_contexts
     create_curriculums
@@ -25,6 +33,10 @@ module Contexts
     create_past_camps
     create_upcoming_camps
     create_more_camp_instructors
+    create_users
+    create_families
+    create_registrations
+    create_students
   end
 
 end

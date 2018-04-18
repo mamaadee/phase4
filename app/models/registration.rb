@@ -74,4 +74,16 @@ class Registration < ApplicationRecord
         self.payment
     end
     
+    def credit_card_type
+        credit_card.type.nil? ? "N/A" : credit_card.type.name
+    end
+    
+    def generate_payment_receipt
+        self.payment = Base64.encode64("camp: #{self.camp_id}; student: #{self.student_id}; amount_paid: #{self.camp.cost}; card: #{self.credit_card_type} ****#{self.credit_card_number[-4..-1]}")
+    end
+    
+    def credit_card
+        CreditCard.new(self.credit_card_number, self.expiration_year, self.expiration_month)
+    end
+    
 end

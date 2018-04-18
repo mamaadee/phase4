@@ -1,9 +1,9 @@
 module Contexts
     module StudentContexts
         def create_students
-            @maryam    = FactoryBot.create(:student, family: @almaadeed, rating: 100)
-            @amna   = FactoryBot.create(:student, family: @alhaj, first_name: "Amna", last_name: "Alhaj", date_of_birth: 11.years.ago.to_date, rating: 1929)
-            @dan    = FactoryBot.create(:student, family: @phelps, first_name: "Daniel", last_name: "Phelps", date_of_birth: 18.years.ago.to_date, rating: 678) 
+            @maryam = FactoryBot.create(:student, family: @almaadeed, rating: 100)
+            @amna = FactoryBot.create(:student, family: @alhaj, first_name: "Amna", last_name: "Alhaj", date_of_birth: 11.years.ago.to_date, rating: 1929)
+            @dan = FactoryBot.create(:student, family: @phelps, first_name: "Daniel", last_name: "Phelps", date_of_birth: 18.years.ago.to_date, rating: 678) 
         end
         
         def delete_students

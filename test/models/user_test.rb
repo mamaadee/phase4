@@ -19,9 +19,9 @@ class UserTest < ActiveSupport::TestCase
       create_users
     end
     
-    teardown do
-      delete_users
-    end
+    # teardown do
+    #   delete_users
+    # end
     
     should "allow user to authenticate with password" do
       assert @maryam_u.authenticate("secret")

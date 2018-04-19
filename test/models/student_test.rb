@@ -29,7 +29,7 @@ class StudentTest < ActiveSupport::TestCase
     end
     
     should "sort students in alphabetical order" do
-      assert_equal ["Alhaj, Amna", "AlMaadeed, Maryam", "Alsheeb, Fatma", "Phelps, Daniel"], Student.alphabetical.all.map(&:name)
+      assert_equal ["Al-Maadeed, Maryam", "Alhaj, Amna","Phelps, Daniel"], Student.alphabetical.all.map(&:name)
     end
     
     should "have working age method" do 

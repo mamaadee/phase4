@@ -1,4 +1,4 @@
-# require needed files
+#required files
 require './test/sets/curriculum_contexts'
 require './test/sets/instructor_contexts'
 require './test/sets/camp_contexts'
@@ -12,7 +12,7 @@ require './test/sets/credit_card_contexts'
 
 
 module Contexts
-  # explicitly include all sets of contexts used for testing 
+  #all sets of contexts 
   include Contexts::CurriculumContexts
   include Contexts::InstructorContexts
   include Contexts::CampContexts

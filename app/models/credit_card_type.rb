@@ -1,6 +1,8 @@
 class CreditCardType
+  #getter
   attr_reader :name, :pattern
 
+  #initializer
   def initialize(name, pattern)
     @name, @pattern = name, pattern
   end

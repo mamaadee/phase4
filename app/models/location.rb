@@ -1,14 +1,4 @@
 class Location < ApplicationRecord
-    
-#callback
-  # before_destroy do 
-  #   check_for_past_camp
-  #   if errors.present?
-  #     @destroyable = false
-  #     throw(:abort)
-  #   end
-  # end
-  
     # relationships
   has_many :camps
   
@@ -26,12 +16,5 @@ class Location < ApplicationRecord
   scope :alphabetical, -> { order('name') }
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
-  
-  #PHASE4
-  # def check_for_past_camp
-  #   unless self.camps.past.empty?
-  #     errors.add(:base, "Camp used in past")
-  #   end
-  # end
 
 end

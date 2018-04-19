@@ -3,13 +3,13 @@ module Contexts
         def create_users
             @maryam_u = FactoryBot.create(:user)
             @amna_u = FactoryBot.create(:user, username: "amnaazz", phone: "987-777-2135")
-            @dana_u = FactoryBot.create(:user, username: "danam")
+            @dan_u = FactoryBot.create(:user, username: "danph")
         end
         
         def delete_users
             @maryam_u.delete
             @amna_u.delete
-            @dana_u.delete
+            @dan_u.delete
         end
         
         def create_family_users

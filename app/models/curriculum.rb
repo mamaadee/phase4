@@ -1,10 +1,4 @@
 class Curriculum < ApplicationRecord
-  #callbacks PHASE4
-  # before_destroy do 
-  #   cannot_destroy_object()
-  # end
-  # before_update :check_for_upcoming_registration_before_making_inactive
-  
   # relationships
   has_many :camps
 
@@ -30,19 +24,4 @@ class Curriculum < ApplicationRecord
       errors.add(:max_rating, "must be greater than the minimum rating")
     end
   end
-  
-  #PHASE4
-  # def check_for_upcoming_registration_before_making_inactive
-  #   return true if self.active
-  #   if any_upcoming_registrations?
-  #     errors.add(:base, "There are upcoming registrations")
-  #   end
-  # end
-  
-  # def any_upcoming_registrations?
-  #   registration_counts = self.camps.upcoming.map{|c| c.registrations.count} 
-  #   registration_counts.inject(0){|sum, rc| sum += rc}.zero?
-  # end  
-
-
 end

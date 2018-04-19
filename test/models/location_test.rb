@@ -54,31 +54,5 @@ class LocationTest < ActiveSupport::TestCase
       assert_equal ["Squirrel Hill"], Location.inactive.all.map(&:name).sort
       delete_inactive_locations
     end
-    
-    #PHASE4
-    # should "allow locations to be destroyed" do
-    #   assert @cmu.camps.past.empty?
-    #   assert @cmu.destroy
-    # end
-
-    # should "should not allow past camps to be destroyed" do
-    #   create_curriculums
-    #   create_camps
-    #   create_family_users
-    #   create_families
-    #   create_students
-    #   create_registrations
-    #   @camp1.update_attribute(:start_date, 52.weeks.ago.to_date)
-    #   @camp1.update_attribute(:end_date, 51.weeks.ago.to_date)
-    #   deny @cmu.camps.past.empty?
-    #   deny @cmu.destroy      
-    #   delete_registrations
-    #   delete_students
-    #   delete_families
-    #   delete_family_users
-    #   delete_curriculums
-    #   delete_camps
-    # end
-
   end
 end

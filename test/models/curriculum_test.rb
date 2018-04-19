@@ -72,11 +72,6 @@ class CurriculumTest < ActiveSupport::TestCase
       assert_equal 1, Curriculum.for_rating(1400).size
       assert_equal ["Mastering Chess Tactics","Smith-Morra Gambit"], Curriculum.for_rating(600).all.map(&:name).sort
     end
-    
-    #phase4 addition
-    # should "show that curriculums cannot be destroyed" do
-    #   deny @tactics.destroy
-    # end
 
   end
 end

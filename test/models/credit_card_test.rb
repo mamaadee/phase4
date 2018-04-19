@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class CreditCardTest < ActiveSupport::TestCase
-    
+    #methods
     def test_valid_cards
         create_valid_cards
         assert @visa.valid?

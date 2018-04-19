@@ -17,7 +17,7 @@ module Contexts
         end
 
         def delete_inactive_students
-            @fatma
+            @fatma.delete
         end
     end
 end

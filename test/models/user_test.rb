@@ -39,12 +39,5 @@ class UserTest < ActiveSupport::TestCase
       deny bad_user.valid?
     end
     
-    should "require passwords to be confirmed and matching" do
-      bad_user_1 = FactoryBot.build(:user, username: "tank", password: "secret", password_confirmation: nil)
-      deny bad_user_1.valid?
-      bad_user_2 = FactoryBot.build(:user, username: "tank", password: "secret", password_confirmation: "sauce")
-      deny bad_user_2.valid?
-    end
-    
   end
 end

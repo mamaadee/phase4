@@ -2,7 +2,7 @@ module Contexts
     module UserContexts
         def create_users
             @maryam_u = FactoryBot.create(:user)
-            @amna_u = FactoryBot.create(:user, username: "amnaazz", phone: "987-777-213")
+            @amna_u = FactoryBot.create(:user, username: "amnaazz", phone: "987-777-2135")
             @dana_u = FactoryBot.create(:user, username: "danam")
         end
         

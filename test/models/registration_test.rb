@@ -44,6 +44,10 @@ class RegistrationTest < ActiveSupport::TestCase
       assert_equal [@amna_r, @dan_r], Registration.for_camp(@camp1).sort_by{|r| r.student.last_name}
     end
 
+    should "verify that the camp is active in the system" do
+      bad_ex = FactoryBot.build(:registration, student: @dan, camp: @camp3)
+      deny bad_ex.valid?
+    end
     
   end
 

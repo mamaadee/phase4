@@ -55,15 +55,15 @@ class StudentTest < ActiveSupport::TestCase
     
     should "verify that the student's family is active in the system" do
       create_inactive_families
-      goerge = FactoryBot.build(:student, family: @phelps, first_name: "Goerge")
-      deny goerge.valid?
+      maryam = FactoryBot.build(:student, family: @alsheeb, first_name: "Maryam")
+      deny maryam.valid?
       delete_inactive_families
       alemadi = FactoryBot.build(:family, family_name: "Alemadi")
       rouda = FactoryBot.build(:student, family: alemadi, first_name: "Rouda")
       deny rouda.valid?
     end
     
-    should "show that there are six active students" do
+    should "show that there are active students" do
       create_inactive_students
       assert_equal 3, Student.active.size
       assert_equal ["Maryam", "Amna", "Daniel"], Student.active.all.map(&:first_name).sort
@@ -76,6 +76,17 @@ class StudentTest < ActiveSupport::TestCase
       assert_equal ["Fatma"], Student.inactive.all.map(&:first_name).sort
       delete_inactive_students
     end
+    
+    should "have working at_or_above_rating scope" do
+      assert_equal 1, Student.at_or_above_rating(1500).size
+      assert_equal ["Amna"], Student.at_or_above_rating(1500).all.map(&:first_name).sort      
+    end
+    
+    should "have working below_rating scope" do |variable|
+      assert_equal 2, Student.below_rating(1000).size
+      assert_equal ["Daniel", "Maryam"], Student.below_rating(1000).all.map(&:first_name).sort      
+    end
+    
   end
 
 end

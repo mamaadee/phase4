@@ -1,4 +1,5 @@
 class Student < ApplicationRecord
+
     # callbacks
     before_destroy do 
         check_if_ever_registered_for_past_camp

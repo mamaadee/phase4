@@ -8,6 +8,7 @@ require './test/sets/family_contexts'
 require './test/sets/student_contexts'
 require './test/sets/registration_contexts'
 require './test/sets/user_contexts'
+require './test/sets/credit_card_contexts'
 
 
 module Contexts
@@ -21,6 +22,7 @@ module Contexts
   include Contexts::RegistrationContexts
   include Contexts::UserContexts
   include Contexts::StudentContexts
+  include Contexts::CreditCardContexts
 
   def create_cuke_contexts
     create_curriculums
@@ -37,6 +39,8 @@ module Contexts
     create_families
     create_registrations
     create_students
+    create_paid_registrations
+    create_deposit_registrations
   end
 
 end

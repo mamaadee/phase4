@@ -3,7 +3,7 @@ module Contexts
         def create_registrations
             @maryam_r = FactoryBot.create(:registration, camp: @camp2, student: @maryam)
             @amna_r = FactoryBot.create(:registration, camp: @camp1, student: @amna)
-            @dan_r  = FactoryBot.create(:registration, camp: @camp4, student: @dan)
+            @dan_r  = FactoryBot.create(:registration, camp: @camp1, student: @dan)
         end
 
         def delete_registrations

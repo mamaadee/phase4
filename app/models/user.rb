@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     #include Activator
     #callbacks
-    # before_save :reformat_phone
+    before_save :reformat_phone
     has_secure_password
     #validations
     validates :username, presence: true, uniqueness: {case_sensitive: false}

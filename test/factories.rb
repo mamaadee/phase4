@@ -46,7 +46,7 @@ FactoryBot.define do
   
   factory :student do
     first_name "Maryam"
-    last_name "Al-Maadeed"
+    last_name "AlMaadeed"
     association :family
     rating nil
     date_of_birth 12.years.ago.to_date
@@ -63,7 +63,7 @@ FactoryBot.define do
   factory :registration do
     association :camp
     association :student
-    #payment "YmVjY2E6c2VjcmV0"
+    payment "YmVjY2E6c2VjcmV0"
   end
 
   factory :user do

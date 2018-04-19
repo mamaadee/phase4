@@ -22,14 +22,14 @@ class StudentTest < ActiveSupport::TestCase
       create_students
     end
     
-    teardown do
-      delete_students
-      delete_families
-      delete_family_users
-    end
+    # teardown do
+    #   delete_students
+    #   delete_families
+    #   delete_family_users
+    # end
     
     should "sort students in alphabetical order" do
-      assert_equal ["Al-Maadeed, Maryam", "Alhaj, Amna","Phelps, Daniel"], Student.alphabetical.all.map(&:name)
+      assert_equal ["AlMaadeed, Maryam", "Alhaj, Amna","Phelps, Daniel"], Student.alphabetical.all.map(&:name)
     end
     
     should "have working age method" do 
@@ -43,7 +43,7 @@ class StudentTest < ActiveSupport::TestCase
     end
     
     should "show that proper_name method works" do
-      assert_equal "Maryam Al-Maadeed", @maryam.proper_name
+      assert_equal "Maryam AlMaadeed", @maryam.proper_name
       assert_equal "Fatma AlSheeb", @fatma.proper_name
     end
     

@@ -49,6 +49,29 @@ class RegistrationTest < ActiveSupport::TestCase
       deny bad_ex.valid?
     end
     
+    should "identify different types of credit card by their pattern" do
+      assert @maryam_r.valid?
+      cards = {4324424564313=>"VISA", 5453256782464678=>"MC", 6546267534365435=>"DISC", 31234567890124=>"DCCB", 353535796442353=>"AMEX"}
+      cards.each do |car, name|
+      @maryam_r.credit_card_number = car
+      assert_equal name, @maryam_r.credit_card_type, "#{@maryam_r.credit_card_type} :: #{@maryam_r.credit_card_number}"
+      end
+    end
+    
+    should "detect valid and invalid expiration dates" do
+      assert @maryam_r.valid?
+      @maryam_r.credit_card_number = "4324424564313"
+      @maryam_r.expiration_month = Date.current.month
+      @maryam_r.expiration_year = 1.year.ago.year
+      deny @maryam_r.valid?
+      @maryam_r.expiration_year = Date.current.year
+      assert @maryam_r.valid?
+      @maryam_r.expiration_month = Date.current.month - 1
+      deny @maryam_r.valid?
+      @maryam_r.expiration_month = Date.current.month + 1
+      assert @maryam_r.valid?
+    end
+    
   end
 
 end

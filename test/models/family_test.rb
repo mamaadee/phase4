@@ -28,7 +28,7 @@ class FamilyTest < ActiveSupport::TestCase
     should "show family is not destroyable" do
       deny @almaadeed.destroy
     end
-    
+  
     should "show active families" do
       assert_equal 3, Family.active.size
       assert_equal ["AlMaadeed", "Alhaj", "Phelps"], Family.active.all.map(&:family_name).sort

@@ -87,6 +87,23 @@ class StudentTest < ActiveSupport::TestCase
       assert_equal ["Daniel", "Maryam"], Student.below_rating(1000).all.map(&:first_name).sort      
     end
     
+    should "allow a student with no past camps to be destroyed" do
+      assert @maryam.destroy
+      create_curriculums
+      create_locations
+      create_camps
+      create_registrations
+      assert_equal 2, @camp1.registrations.count
+      assert @dan.destroy
+      @camp1.reload
+      assert_equal 1, @camp1.registrations.count
+      delete_registrations
+      delete_camps
+      delete_locations
+      delete_curriculums
+    end
+    
+    
   end
 
 end

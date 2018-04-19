@@ -74,9 +74,9 @@ class CurriculumTest < ActiveSupport::TestCase
     end
     
     #phase4 addition
-    should "show that curriculums cannot be destroyed" do
-      deny @tactics.destroy
-    end
+    # should "show that curriculums cannot be destroyed" do
+    #   deny @tactics.destroy
+    # end
 
   end
 end
